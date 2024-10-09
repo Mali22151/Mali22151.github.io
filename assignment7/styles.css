@@ -1,0 +1,25 @@
+.external-style-body {
+  background-color: #f0e68c;
+}
+ h1{
+  text-align: center;
+  color: darkblue;
+ }
+ table{
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #e0e0e0;
+ }
+ td{
+  padding: 10px;
+ }
+ a{
+  color: brown;
+  font-size: 20px;
+  text-decoration: none;
+ }
+ h2{
+  text-align: center;
+  color: darkred;
+ }
