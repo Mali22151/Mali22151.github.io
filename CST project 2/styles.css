@@ -1,0 +1,38 @@
+body{
+	background-color:#FFD700 ; /*The page color is aggie gold*/
+
+}
+h1{
+  text-align: center;
+  color: #0000FF;    
+  /*This makes the headers blue and put in the center*/
+}
+td{
+  padding: 10px;
+}/* this add more space*/
+
+.img-main-basketball{
+	  height: 500px;
+
+}/* This changes the placement of the picture*/
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* Pictures adjust automatically when the page size is changed*/
+
+.flex-items {
+  width: 300px;
+  margin: 10px;
+  /*Changes the size of the pictures.*/
+}
+P{
+  font-family: times new roman;
+font-size: 20px;
+ text-align: justify;
+}
+/* This made the font and size of the font change*/
+.button-container {
+    text-align: right;
+}/* Put the next button on the right page*/
