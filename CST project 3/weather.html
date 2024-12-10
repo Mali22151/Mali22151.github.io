@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A&T Hoop Runs</title><!-- title of the website-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="main-icon.png"><!--Gives the website a icon on the top of the page-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Connects the HTML page to a css page.-->
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+</head>
+<body>
+ 
+    <header>      
+        <nav>
+            <table>
+              <tr>
+                 <td><a href="index.html">Home</a></td> <!--This is the home page-->
+                <td><a href="about-us.html">About US</a></td> <!-- This takes you to the reason I made the site-->
+                <td><a href="weather.html">Weather</a></td> <!-- This takes you to the weather page-->
+                <td><a href="time.html">Time</a></td><!-- This takes you to the time page-->
+                <td><a href="queue.html">Queue</a></td><!-- You can join the queue for the half and full court .-->
+                <td><a href="contact-us.html">Contact US</a></td><!-- You put your info in this page so we can reach you.-->
+                
+              </tr>
+            </table>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about-us">
+            <h1>Weather</h1>
+
+            <div class="flex-container">
+                <img class="flex-items" src="weather1.jpg" alt="Weather Image Cloud"><!-- Adds a cloudy picture-->
+                <img class="flex-items" src="weather2.jpg" alt="Weather Image Sun"><!-- Adds a sunny picture-->
+                <img class="flex-items" src="weather3.jpg" alt="Weather Image Rain"><!-- Adds a rain picture-->
+
+            </div>
+        </section>
+         <input type="text" id="city" placeholder="Enter city name">
+    <button id="getWeather">Get Weather</button>
+    <div id="weatherResult"></div>
+    <script src="weather.js"></script>
+
+<script> 
+    $(document).ready(function() {
+    $('#getWeather').click(function() {
+        const city = $('#city').val();
+        const apiKey = '9dbc67c062de0a9109850feb9bcf3bd1'; 
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+        $.get(apiUrl, function(data) {
+            const weatherDescription = data.weather[0].description;
+            const temperature = data.main.temp;
+            const humidity = data.main.humidity;
+
+            $('#weatherResult').html(`
+                <h2>Weather in ${city}</h2>
+                <p>Temperature: ${temperature} °C</p>
+                <p>Humidity: ${humidity}%</p>
+                <p>Description: ${weatherDescription}</p>
+            `);
+       // Open the dialog
+                    $('#weatherResult').dialog();
+                }).fail(function() {
+                    $('#weatherResult').html('<p>City not found. Please try again.</p>').dialog();
+        });
+    });
+});
+</script>
+
+
+    </main>
+     <p>This shows you the weather for today, so you will know if the weather is good enough to go play basketball in.</p>
+     
+  <footer>
+    <a href="https://validator.w3.org/check?uri=referer" referrerpolicy="unsafe-url">ValidateHTML</a><br>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer" referrerpolicy="unsafe-url">ValidateCSS</a>
+    <!-- It adds the validator links-->
+</footer>
+
+    </body>
+</html>
